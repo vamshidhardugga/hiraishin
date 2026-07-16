@@ -5,4 +5,13 @@ edition = "2024"
 description = "Redirection engine for a URL shortening service."
 license = "AGPL-3"
 
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+strip = true
+
 [dependencies]
+tokio = { version = "1.52.3", features = ["rt", "rt-multi-thread", "macros"] }
+axum = { version = "0.8.9" }
+serde = { version = "1.0.228", features = ["derive"] }
