@@ -1,0 +1,8 @@
+[package]
+name = "hiraishin"
+version = "0.0.0"
+edition = "2024"
+description = "Redirection engine for a URL shortening service."
+license = "AGPL-3"
+
+[dependencies]

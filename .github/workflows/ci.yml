@@ -1,0 +1,57 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "**/*.rs"
+      - "**/*.toml"
+      - ".github/workflows/**"
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "**/*.rs"
+      - "**/*.toml"
+      - ".github/workflows/**"
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: Test and Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Setup Rust
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup target add x86_64-unknown-linux-musl
+          rustup component add rustfmt clippy
+
+      - name: Cache Dependencies
+        uses: actions/cache@v5
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
+
+      - name: Format Check
+        run: cargo fmt --check
+
+      - name: Run Lints
+        run: cargo clippy -- -D warnings
+
+      - name: Run Tests
+        run: cargo test
+
+      - name: Build Release
+        run: cargo build --release
