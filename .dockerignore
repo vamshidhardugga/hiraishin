@@ -1,0 +1,21 @@
+# Cargo
+target
+debug
+
+# Environment Variables
+.env*
+
+# Git
+.git
+.github
+
+# Docker
+Dockerfile
+.dockerignore
+
+# JetBrains
+.idea
+
+# Miscellaneous
+.DS_Store
+*.pem

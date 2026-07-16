@@ -6,12 +6,14 @@ on:
     paths:
       - "**/*.rs"
       - "**/*.toml"
+      - "Dockerfile"
       - ".github/workflows/**"
   pull_request:
     branches: [ "main" ]
     paths:
       - "**/*.rs"
       - "**/*.toml"
+      - "Dockerfile"
       - ".github/workflows/**"
 
 permissions:
