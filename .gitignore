@@ -9,6 +9,12 @@ debug
 # JetBrains
 .idea
 
+# Visual Studio Code
+.vscode
+
+# Zed
+.zed
+
 # Miscellaneous
 .DS_Store
 *.pem

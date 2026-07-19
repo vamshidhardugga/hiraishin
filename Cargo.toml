@@ -12,6 +12,6 @@ opt-level = 3
 strip = true
 
 [dependencies]
-tokio = { version = "1.52.3", features = ["rt", "rt-multi-thread", "macros"] }
+tokio = { version = "1.52.3", features = ["full"] }
 axum = { version = "0.8.9" }
 serde = { version = "1.0.228", features = ["derive"] }
