@@ -13,4 +13,6 @@ opt-level = 3
 
 [dependencies]
 tokio = { version = "1.53.1", features = ["rt", "rt-multi-thread", "macros"] }
-axum = "0.8.9"
+axum = { version = "0.8.9" }
+tracing = { version = "0.1.44" }
+tracing-subscriber = { version = "0.3.23", features = ["json"] }
