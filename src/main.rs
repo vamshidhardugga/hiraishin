@@ -6,7 +6,7 @@ use tokio::net::TcpListener;
 async fn main() {
     let port = env::var("PORT").expect("PORT environment variable must be set");
     let app = Router::new().route("/", get(index));
-    let listener = TcpListener::bind(format!("0.0.0.0:{}", port))
+    let listener = TcpListener::bind(format!("127.0.0.1:{}", port))
         .await
         .expect("failed to bind to network port");
     serve(listener, app).await.expect("failed to start the axum server");
