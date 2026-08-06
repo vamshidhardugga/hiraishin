@@ -12,3 +12,5 @@ lto = "fat"
 opt-level = 3
 
 [dependencies]
+tokio = { version = "1.53.1", features = ["rt", "rt-multi-thread", "macros"] }
+axum = "0.8.9"
