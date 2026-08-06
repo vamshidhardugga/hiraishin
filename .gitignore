@@ -1,0 +1,14 @@
+# Cargo
+target
+debug
+
+# Environment Variables
+.env*
+!.env.example
+
+# JetBrains
+.idea
+
+# Miscellaneous
+.DS_Store
+*.pem

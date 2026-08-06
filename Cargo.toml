@@ -1,0 +1,14 @@
+[package]
+name = "hiraishin"
+version = "0.0.0"
+edition = "2024"
+description = "Redirection engine for a URL shortening service."
+repository = "https://github.com/vamshidhardugga/hiraishin"
+license = "Apache-2.0"
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+opt-level = 3
+
+[dependencies]
