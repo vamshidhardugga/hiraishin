@@ -1,0 +1,14 @@
+# Cargo
+target
+debug
+
+# Environment Variables
+.env*
+!.env.example
+
+# Visual Studio Code
+.vscode
+
+# Miscellaneous
+.DS_Store
+*.pem
