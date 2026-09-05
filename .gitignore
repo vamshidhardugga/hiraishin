@@ -1,0 +1,14 @@
+# Cargo
+target
+debug
+
+# Environment Variables
+.env*
+!.env.example
+
+# Zed Editor
+.zed
+
+# Miscellaneous
+.DS_Store
+*.pem
