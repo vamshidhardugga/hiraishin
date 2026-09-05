@@ -1,4 +1,4 @@
-ARG RUST_VERSION=1.98.0
+ARG RUST_VERSION=1.98.1
 
 FROM rust:${RUST_VERSION}-trixie AS builder
 
@@ -12,8 +12,6 @@ RUN cargo build --release --locked
 
 FROM gcr.io/distroless/cc-debian13:nonroot
 
-WORKDIR /app
+COPY --chown=nonroot:nonroot --from=builder /app/target/x86_64-unknown-linux-gnu/release/hiraishin /hiraishin
 
-COPY --from=builder /app/target/x86_64-unknown-linux-gnu/release/hiraishin hiraishin
-
-ENTRYPOINT [ "./hiraishin" ]
+ENTRYPOINT [ "/hiraishin" ]
